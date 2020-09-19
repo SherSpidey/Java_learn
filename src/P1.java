@@ -25,14 +25,22 @@ public class P1 {
             case 10:
             case 11:
                 switch (type) {
-                    case "头等舱" -> price = TIK * 0.9;
-                    case "经济舱" -> price = TIK * 0.8;
+                    case "头等舱" :
+                        price = TIK * 0.9;
+                        break;
+                    case "经济舱"  :
+                        price = TIK * 0.8;
+                        break;
                 }
                 break;
             default:
                 switch (type) {
-                    case "头等舱" -> price = TIK * 0.5;
-                    case "经济舱" -> price = TIK * 0.4;
+                    case "头等舱":
+                        price = TIK * 0.5;
+                        break;
+                    case "经济舱":
+                        price = TIK * 0.4;
+                        break;
                 }
         }
 
