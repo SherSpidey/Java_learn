@@ -18,8 +18,8 @@ public class P6 {
                 break;
             System.out.print("你输入的年份月份有误。请重新输入：");
         }
-
-        System.out.println("Year:"+date[0]+", Month:"+date[1]);
+        //System.out.println("Year:"+date[0]+", Month:"+date[1]);
+        drawtable(date[0],date[1]);
     }
     public static int[] getnum(String data){
         Matcher strnum = REG.matcher(data);
@@ -28,5 +28,25 @@ public class P6 {
             yam[i]=Integer.parseInt(strnum.group());
         }
         return yam;
+    }
+
+    public static void drawtable(int year, int month){
+        Calendar cal = Calendar.getInstance();
+        cal.set(year,month,0);
+        int daynum = cal.get(Calendar.DATE);//Funny it is that is will return the last day index of this month.
+        cal.set(year,month-1,1);
+        int startday = cal.get(Calendar.DAY_OF_WEEK)-1;
+        System.out.printf("===================%d年%d月========================\n",year,month);
+        String[] week ={"日","一","二","三","四","五","六"};
+        for(String j :week)
+            System.out.print(j+"\t\t");
+        System.out.println();
+        for(int j=0;j<startday;j++)
+            System.out.print("\t\t");
+        for(int i=1;i<=daynum;i++){
+            System.out.print(i+"\t\t");
+            if((i+startday)%7==0)
+                System.out.println();
+        }
     }
 }
